@@ -25,7 +25,7 @@ Library was originally developed as part of [Hackster Connect things with code! 
 - Support for reading state of inputs used in autonomous mode
 - Tested with Infineon BGT60LTR11 S2GO Module
 
-Library handles SPI interface of the sensor. Library do not handle TDet and PDet singnals. You are supposed to manage them using platform specific GPIO driver directly.
+Library handles SPI interface of the sensor. Library do not handle TDet and PDet signals. You are supposed to manage them using platform specific GPIO driver directly.
 
 ## Supporter Platforms
 
@@ -42,7 +42,7 @@ Currently is library ported to following platforms:
 1. Add `#include "BGT60LTR11.h"` at the begining of your source code file.
 1. Allocate `BGT60LTR11_Device` structure. It must live for whole time when sensor is used.
 1. Call `BGT60LTR11_Init()` function at the begining of your program. Pass pointer to previously allocated structure and platform-specification identification of Chip Select pin.
-1. Use functions starting with `BGT60LTR11_` previx as needed.
+1. Use functions starting with `BGT60LTR11_` prefix as needed.
 
 ## Functions
 Library contains following functions (you can find this listing in `BGT60LTR11.h` file):
@@ -70,7 +70,7 @@ BGT60LTR11_Status BGT60LTR11_GetAdcDataMultiple(BGT60LTR11_Device* dev, BGT60LTR
 
 Following example configure radar in default mode and turn it on. Example use default configuration. It is recommended to use `BGT60LTR11_LoadDefaultConfiguration()` as a base for configuration because configuring all 54 parameters form scratch is quite complicated. After `BGT60LTR11_LoadDefaultConfiguration()` call you can update only desired parameters while remaining other in default state.
 
-If you want to reconfigure sensor, you should reset it first. Communication on SPI bus collides with communication of internal "main controller" and chip User Guide from Infineon explicitly recommends do not reconfiguring sensor when it is running. Recommended step reconfiguring sensor at runtime is doing exactly the same steps as initial configuration, except calling `BGT60LTR11_Init` which basically just prepares SPI bus driver.
+If you want to reconfigure sensor, you should reset it first. Communication on SPI bus collides with communication of internal "main controller" and User Guide from Infineon explicitly recommends do not reconfiguring sensor when it is running. Recommended steps for reconfiguring sensor at runtime are exactly the same steps as initialy configuring sensor, except calling `BGT60LTR11_Init` which basically just prepares SPI bus driver and should be called only once.
 
 ```
 #include "BGT60LTR11.h"
