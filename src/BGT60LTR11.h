@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: MIT */
+
 #ifndef BGT60LTR11_H_
 #define BGT60LTR11_H_
 

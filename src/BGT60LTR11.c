@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: MIT */
+
 #include "BGT60LTR11.h"
 
 #include <stdint.h>
